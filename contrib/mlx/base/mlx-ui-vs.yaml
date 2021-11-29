@@ -14,9 +14,9 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /mlx
+        prefix: /
     rewrite:
-      uri: /mlx
+      uri: /
     route:
     - destination:
         host: mlx-ui.kubeflow.svc.cluster.local

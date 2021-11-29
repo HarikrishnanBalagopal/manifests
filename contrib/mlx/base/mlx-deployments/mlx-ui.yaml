@@ -51,7 +51,7 @@ spec:
         - name: REACT_APP_UPLOAD
           value: "true"
         - name: REACT_APP_BASE_PATH
-          value: /mlx
+          value: ""
         - name: REACT_APP_DISABLE_LOGIN
           value: "false"
         - name: KUBEFLOW_USERID_HEADER
