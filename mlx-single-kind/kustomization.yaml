@@ -15,7 +15,7 @@ resources:
 # Kubeflow Pipelines with Tekton
 - ../dist/stacks/ibm/application/kfp-tekton-no-auth
 # Datashim
-- ../contrib/datashim/base
+- ../contrib/datashim/kind
 # MLX
-- ../contrib/mlx/base
+- ../contrib/mlx/mlx-standalone
 
