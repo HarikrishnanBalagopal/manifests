@@ -10,3 +10,5 @@ resources:
   - kfp-vs.yaml
   - clusterrolebinding.yaml
   - secrets.yaml
+patchesStrategicMerge:
+  - mlx-ui-patch.yaml
