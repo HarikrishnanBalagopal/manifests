@@ -68,9 +68,6 @@ spec:
           name: dashboard-admin
           readOnly: true
           # When deploying MLX on OpenShift, readOnly SCC may be required for mlx-ui.
-        - mountPath: /workspace/build
-          name: build-volume
-          # When deploying MLX on OpenShift, emptydir volume is required for mlx-ui.
       volumes:
       - name: dashboard-admin
         secret:
@@ -78,8 +75,6 @@ spec:
           - key: admin.json
             path: admin.json
           secretName: mlx-dashboard-admin
-      - name: build-volume
-        emptyDir: {}
       serviceAccountName: mlx-ui
 ---
 apiVersion: v1
