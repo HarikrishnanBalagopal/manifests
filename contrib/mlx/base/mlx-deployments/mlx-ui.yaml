@@ -38,6 +38,11 @@ spec:
       labels:
         service: mlx-ui
     spec:
+      securityContext:
+        # runAsUser: 0  # root, prior to https://github.com/machine-learning-exchange/mlx/pull/339
+        runAsNonRoot: true
+        runAsUser: 1000  # node
+        fsGroup: 1000  # node
       containers:
       - name: mlx-ui
         # You can use your own webapp image below
