@@ -4,7 +4,7 @@ resources:
 # Cert-Manager (required)
 - ../dist/stacks/ibm/application/cert-manager
 # Istio (requires)
-- ../dist/stacks/ibm/application/istio-1-11
+- ../dist/stacks/ibm/application/istio
 # OIDC Authservice (required)
 - ../dist/stacks/ibm/application/oidc-authservice
 - ../dist/stacks/ibm/application/dex-auth
