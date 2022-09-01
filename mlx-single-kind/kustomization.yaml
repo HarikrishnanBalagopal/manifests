@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
 # Istio
-- ../dist/stacks/ibm/application/istio-1-11
+- ../dist/stacks/ibm/application/istio
 # Kubeflow namespace (required)
 - ../dist/stacks/ibm/application/kubeflow-namespace-no-auth
 # Kubeflow Roles (required)
@@ -19,3 +19,6 @@ resources:
 # MLX
 - ../contrib/mlx/mlx-standalone
 
+# Override kubelet path for OpenShift on AWS and Fyre
+patchesStrategicMerge:
+- overlays/csi-s3-deployment.yaml

@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
 # Istio
-- ../dist/stacks/ibm/application/istio-1-11
+- ../dist/stacks/ibm/application/istio
 # Kubeflow namespace (required)
 - ../dist/stacks/ibm/application/kubeflow-namespace-no-auth
 # Kubeflow Roles (required)

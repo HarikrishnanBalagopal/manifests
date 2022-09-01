@@ -3,14 +3,13 @@ kind: Kustomization
 
 resources:
 # Istio
-- ../dist/stacks/ibm/application/istio-1-11
+- ../dist/stacks/ibm/application/istio
 # Kubeflow namespace (required)
 - ../dist/stacks/ibm/application/kubeflow-namespace-no-auth
 # Kubeflow Roles (required)
 - ../dist/stacks/ibm/application/kubeflow-roles
 # Kubeflow istio resource (required)
 - ../dist/stacks/ibm/application/kubeflow-istio-resources
-
 
 # Kubeflow Pipelines with Tekton
 - ../dist/stacks/ibm/application/kfp-tekton-no-auth
@@ -20,3 +19,7 @@ resources:
 - ../contrib/mlx/mlx-standalone
 # Openshift SCC
 - ../dist/stacks/ibm/application/openshift/openshift-scc
+
+# Override kubelet path for OpenShift on AWS and Fyre
+patchesStrategicMerge:
+- overlays/csi-s3-deployment.yaml
