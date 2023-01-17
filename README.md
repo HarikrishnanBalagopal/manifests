@@ -74,8 +74,9 @@ used from the different projects of Kubeflow:
 
 | Component | Local Manifests Path | Upstream Revision |
 | - | - | - |
-| Istio | common/istio-1-14 | [1.14.1](https://github.com/istio/istio/releases/tag/1.14.1) |
+| Istio | common/istio-1-16 | [1.16.0](https://github.com/istio/istio/releases/tag/1.16.0) |
 | Knative | common/knative | [0.22.1](https://github.com/knative/serving/releases/tag/v0.22.1) |
+| Cert Manager | common/cert-manager | [1.10.1](https://github.com/cert-manager/cert-manager/releases/tag/v1.10.1) |
 
 ## Installation
 
@@ -149,9 +150,9 @@ network authorization and implement routing policies.
 Install Istio:
 
 ```sh
-kustomize build common/istio-1-14/istio-crds/base | kubectl apply -f -
-kustomize build common/istio-1-14/istio-namespace/base | kubectl apply -f -
-kustomize build common/istio-1-14/istio-install/base | kubectl apply -f -
+kustomize build common/istio-1-16/istio-crds/base | kubectl apply -f -
+kustomize build common/istio-1-16/istio-namespace/base | kubectl apply -f -
+kustomize build common/istio-1-16/istio-install/base | kubectl apply -f -
 ```
 
 #### Dex
@@ -180,7 +181,7 @@ Install Knative Serving:
 
 ```sh
 kustomize build common/knative/knative-serving/overlays/gateways | kubectl apply -f -
-kustomize build common/istio-1-14/cluster-local-gateway/base | kubectl apply -f -
+kustomize build common/istio-1-16/cluster-local-gateway/base | kubectl apply -f -
 ```
 
 Optionally, you can install Knative Eventing which can be used for inference request logging:
@@ -222,7 +223,7 @@ well.
 Install istio resources:
 
 ```sh
-kustomize build common/istio-1-14/kubeflow-istio-resources/base | kubectl apply -f -
+kustomize build common/istio-1-16/kubeflow-istio-resources/base | kubectl apply -f -
 ```
 
 #### Kubeflow Pipelines
@@ -232,14 +233,14 @@ Install the [Multi-User Kubeflow Pipelines](https://www.kubeflow.org/docs/compon
 ```sh
 kustomize build apps/pipeline/upstream/env/cert-manager/platform-agnostic-multi-user | kubectl apply -f -
 ```
+This installs argo with the safe-to use runasnonroot emissary executor.  Please note that the installer is still responsible to analyze the security issues that arise when containers are run with root access and to decide if the kubeflow pipeline main containers are run as runasnonroot. It is strongly recommended that the pipelines main containers are installed and run as runasnonroot and without any special capabilities to mitigate security risks.
 
-If your container runtime is not docker, use pns executor instead:
-
+Do not use the deprecated and insecure PNS executor anymore
 ```sh
 kustomize build apps/pipeline/upstream/env/platform-agnostic-multi-user-pns | kubectl apply -f -
 ```
 
-Refer to [argo workflow executor documentation](https://argoproj.github.io/argo-workflows/workflow-executors/#process-namespace-sharing-pns) for their pros and cons.
+Refer to [argo workflow executor documentation](https://argoproj.github.io/argo-workflows/workflow-executors) for further reasoning.
 
 **Multi-User Kubeflow Pipelines dependencies**
 
