@@ -70,3 +70,29 @@ resources:
 -  ../dist/stacks/ibm/application/tensorboard-controller
 # Training Operator
 - ../dist/stacks/ibm/application/training-operator
+
+images:
+- name: docker.io/aipipeline/api-server
+  newName: quay.io/aipipeline/api-server
+  newTag: 1.5.1
+- name: docker.io/aipipeline/persistenceagent
+  newName: quay.io/aipipeline/persistenceagent
+  newTag: 1.5.1
+- name: docker.io/aipipeline/scheduledworkflow
+  newName: quay.io/aipipeline/scheduledworkflow
+  newTag: 1.5.1
+- name: docker.io/aipipeline/cache-server
+  newName: quay.io/aipipeline/cache-server
+  newTag: 1.5.1
+- name: docker.io/aipipeline/metadata-writer
+  newName: quay.io/aipipeline/metadata-writer
+  newTag: 1.5.1
+- name: docker.io/aipipeline/frontend
+  newName: quay.io/aipipeline/frontend
+  newTag: 1.5.1
+- name: docker.io/aipipeline/pipelineloop-controller
+  newName: quay.io/aipipeline/pipelineloop-controller
+  newTag: 1.5.1
+- name: docker.io/aipipeline/pipelineloop-webhook
+  newName: quay.io/aipipeline/pipelineloop-webhook
+  newTag: 1.5.1
