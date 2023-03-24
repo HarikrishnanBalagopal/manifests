@@ -76,6 +76,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 [params]
   github_repo = "https://github.com/IBM/manifests"
   github_subdir = "website"
+  github_branch = "master"
   github_project_repo = "https://github.com/IBM/manifests"
 
   RSSLink = "/index.xml"
