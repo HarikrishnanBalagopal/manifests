@@ -51,13 +51,13 @@ Starting from Kubeflow 1.3, all components should be deployable using `kustomize
 
 ## Kubeflow components versions
 
-### Kubeflow Version: v1.7.0-rc.0
+### Kubeflow Version: v1.7.0
 
 This repo periodically syncs all official Kubeflow components from their respective upstream repos. The following matrix shows the git version that we include for each component:
 
 | Component | Local Manifests Path | Upstream Revision |
 | - | - | - |
-| Training Operator | apps/training-operator/upstream | [v1.6.0-rc.1](https://github.com/kubeflow/training-operator/tree/v1.6.0-rc.1/manifests) |
+| Training Operator | apps/training-operator/upstream | [v1.6.0](https://github.com/kubeflow/training-operator/tree/v1.6.0/manifests) |
 | Notebook Controller | apps/jupyter/notebook-controller/upstream | [v1.7.0-rc.1](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.1/components/notebook-controller/config) |
 | Tensorboard Controller | apps/tensorboard/tensorboard-controller/upstream | [v1.7.0-rc.1](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.1/components/tensorboard-controller/config) |
 | Central Dashboard | apps/centraldashboard/upstream | [v1.7.0-rc.1](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.1/components/centraldashboard/manifests) |
@@ -66,7 +66,7 @@ This repo periodically syncs all official Kubeflow components from their respect
 | Jupyter Web App | apps/jupyter/jupyter-web-app/upstream | [v1.7.0-rc.1](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.1/components/crud-web-apps/jupyter/manifests) |
 | Tensorboards Web App | apps/tensorboard/tensorboards-web-app/upstream | [v1.7.0-rc.1](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.1/components/crud-web-apps/tensorboards/manifests) |
 | Volumes Web App | apps/volumes-web-app/upstream | [v1.7.0-rc.1](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.1/components/crud-web-apps/volumes/manifests) |
-| Katib | apps/katib/upstream | [v0.15.0-rc.1](https://github.com/kubeflow/katib/tree/v0.15.0-rc.1/manifests/v1beta1) |
+| Katib | apps/katib/upstream | [v0.15.0](https://github.com/kubeflow/katib/tree/v0.15.0/manifests/v1beta1) |
 | KServe | contrib/kserve/kserve | [v0.10.0](https://github.com/kserve/kserve/tree/v0.10.0/install/v0.10.0) |
 | KServe Models Web App | contrib/kserve/models-web-app | [v0.10.0](https://github.com/kserve/models-web-app/tree/v0.10.0/config) |
 | Kubeflow Pipelines | apps/pipeline/upstream | [2.0.0-alpha.7](https://github.com/kubeflow/pipelines/tree/2.0.0-alpha.7/manifests/kustomize) |
