@@ -1,0 +1,563 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.111.2">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/manifests/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/manifests/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/manifests/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/manifests/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/manifests/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/manifests/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/manifests/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/manifests/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/manifests/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/manifests/favicons/android-192x192.png" sizes="192x192">
+
+<title>Install Kubeflow | Kubeflow on IKS</title>
+<meta name="description" content="Instructions for deploying Kubeflow on IBM Cloud Kubernetes Service">
+<meta property="og:title" content="Install Kubeflow" />
+<meta property="og:description" content="Instructions for deploying Kubeflow on IBM Cloud Kubernetes Service" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ibm.github.io/manifests/docs/deployment/install/" /><meta property="article:section" content="docs" />
+
+<meta property="og:site_name" content="Kubeflow on IKS" />
+<meta itemprop="name" content="Install Kubeflow">
+<meta itemprop="description" content="Instructions for deploying Kubeflow on IBM Cloud Kubernetes Service">
+
+<meta itemprop="wordCount" content="1724">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Install Kubeflow"/>
+<meta name="twitter:description" content="Instructions for deploying Kubeflow on IBM Cloud Kubernetes Service"/>
+
+
+
+
+<link rel="preload" href="/manifests/scss/main.min.3939a80c32100bd99b05b4aca0c29c287b38bf74cd6cdb77ecdb245c4fa5d76d.css" as="style">
+<link href="/manifests/scss/main.min.3939a80c32100bd99b05b4aca0c29c287b38bf74cd6cdb77ecdb245c4fa5d76d.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/manifests/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Kubeflow on IKS</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/manifests/docs/"><i class='fas fa-book pr-2'></i><span class="active">Documentation</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/manifests/blog/"><i class='fas fa-rss pr-2'></i><span>Blog</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="https://github.com/IBM/manifests" target="_blank"><i class='fab fa-github pr-2'></i><span>GitHub</span></a>
+      </li>
+      <li class="nav-item dropdown mr-4 d-none d-lg-block">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Release Version
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	
+	
+	<a class="dropdown-item" href="/manifests/">latest</a>
+	
+	<a class="dropdown-item" href="/manifests/">v1.7</a>
+	
+	<a class="dropdown-item" href="/manifests/release/v1.6">v1.6</a>
+	
+</div>
+</li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-manifestsdocs-li">
+  <a href="/manifests/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-manifestsdocs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-manifestsdocsprerequisites-li">
+  <input type="checkbox" id="m-manifestsdocsprerequisites-check"/>
+  <label for="m-manifestsdocsprerequisites-check"><a href="/manifests/docs/prerequisites/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manifestsdocsprerequisites"><span class="">Prerequisites</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsprerequisitesclassic-li">
+  <input type="checkbox" id="m-manifestsdocsprerequisitesclassic-check"/>
+  <label for="m-manifestsdocsprerequisitesclassic-check"><a href="/manifests/docs/prerequisites/classic/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsprerequisitesclassic"><span class="">Kubernetes Cluster on Classic Infra</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsprerequisitesvpc-li">
+  <input type="checkbox" id="m-manifestsdocsprerequisitesvpc-check"/>
+  <label for="m-manifestsdocsprerequisitesvpc-check"><a href="/manifests/docs/prerequisites/vpc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsprerequisitesvpc"><span class="">Kubernetes cluster on a VPC</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-manifestsdocsdeployment-li">
+  <input type="checkbox" id="m-manifestsdocsdeployment-check" checked/>
+  <label for="m-manifestsdocsdeployment-check"><a href="/manifests/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manifestsdocsdeployment"><span class="">Deployment</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsdeploymentdeployment-process-li">
+  <input type="checkbox" id="m-manifestsdocsdeploymentdeployment-process-check"/>
+  <label for="m-manifestsdocsdeploymentdeployment-process-check"><a href="/manifests/docs/deployment/deployment-process/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsdeploymentdeployment-process"><span class="">Kubeflow Deployment Process</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsdeploymentcompatibility-li">
+  <input type="checkbox" id="m-manifestsdocsdeploymentcompatibility-check"/>
+  <label for="m-manifestsdocsdeploymentcompatibility-check"><a href="/manifests/docs/deployment/compatibility/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsdeploymentcompatibility"><span class="">IBM Cloud Kubernetes and Kubeflow Compatibility</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-manifestsdocsdeploymentinstall-li">
+  <input type="checkbox" id="m-manifestsdocsdeploymentinstall-check" checked/>
+  <label for="m-manifestsdocsdeploymentinstall-check"><a href="/manifests/docs/deployment/install/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsdeploymentinstall"><span class="td-sidebar-nav-active-item">Install Kubeflow</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsdeploymentauthentication-li">
+  <input type="checkbox" id="m-manifestsdocsdeploymentauthentication-check"/>
+  <label for="m-manifestsdocsdeploymentauthentication-check"><a href="/manifests/docs/deployment/authentication/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsdeploymentauthentication"><span class="">Securing the Kubeflow authentication with HTTPS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsdeploymentuninstall-li">
+  <input type="checkbox" id="m-manifestsdocsdeploymentuninstall-check"/>
+  <label for="m-manifestsdocsdeploymentuninstall-check"><a href="/manifests/docs/deployment/uninstall/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsdeploymentuninstall"><span class="">Uninstall Kubeflow</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-manifestsdocsstarted-li">
+  <input type="checkbox" id="m-manifestsdocsstarted-check"/>
+  <label for="m-manifestsdocsstarted-check"><a href="/manifests/docs/started/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manifestsdocsstarted"><span class="">How to Use Kubeflow</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsstartedpipelines-li">
+  <input type="checkbox" id="m-manifestsdocsstartedpipelines-check"/>
+  <label for="m-manifestsdocsstartedpipelines-check"><a href="/manifests/docs/started/pipelines/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsstartedpipelines"><span class="">Pipelines</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsstartedusing-icr-li">
+  <input type="checkbox" id="m-manifestsdocsstartedusing-icr-check"/>
+  <label for="m-manifestsdocsstartedusing-icr-check"><a href="/manifests/docs/started/using-icr/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsstartedusing-icr"><span class="">Using IBM Cloud Container Registry (ICR)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsdocsstartediks-e2e-li">
+  <input type="checkbox" id="m-manifestsdocsstartediks-e2e-check"/>
+  <label for="m-manifestsdocsstartediks-e2e-check"><a href="/manifests/docs/started/iks-e2e/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsdocsstartediks-e2e"><span class="">End-to-end Kubeflow on IBM Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/IBM/manifests/tree/github-pages/website/content/en/docs/deployment/install.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/IBM/manifests/edit/github-pages/website/content/en/docs/deployment/install.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/IBM/manifests/new/github-pages/website/content/en/docs/deployment/install.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/IBM/manifests/issues/new?title=Install%20Kubeflow" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/IBM/manifests/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a>
+      <ul>
+        <li><a href="#storage-setup-for-a-classic-ibm-cloud-kubernetes-cluster">Storage setup for a <strong>Classic</strong> IBM Cloud Kubernetes cluster</a></li>
+        <li><a href="#storage-setup-for-vpc-gen2-ibm-cloud-kubernetes-cluster">Storage setup for <strong>vpc-gen2</strong> IBM Cloud Kubernetes cluster</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#single-user">Single user</a>
+      <ul>
+        <li><a href="#accessing-your-cluster">Accessing your cluster</a></li>
+      </ul>
+    </li>
+    <li><a href="#multi-user-auth-enabled">Multi-user, auth-enabled</a>
+      <ul>
+        <li><a href="#prerequisites-1">Prerequisites</a></li>
+        <li><a href="#deploy-using-kustomize-together-with-kubectl">Deploy: Using kustomize together with kubectl</a></li>
+        <li><a href="#verify-mutli-user-installation">Verify mutli-user installation</a></li>
+        <li><a href="#extra-network-setup-requirement-for-vpc-gen2-clusters-only">Extra network setup requirement for <strong>vpc-gen2</strong> clusters only</a></li>
+      </ul>
+    </li>
+    <li><a href="#next-steps-secure-the-kubeflow-dashboard-with-https">Next steps: secure the Kubeflow dashboard with HTTPS</a>
+      <ul>
+        <li><a href="#prerequisites-2">Prerequisites</a></li>
+        <li><a href="#setup">Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#expose-the-kubeflow-endpoint-as-a-loadbalancer">Expose the Kubeflow endpoint as a LoadBalancer</a></li>
+        <li><a href="#authservice-pod-taking-too-long-to-restart">Authservice pod taking too long to restart</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+	
+		
+
+
+
+  
+  
+
+	
+		
+
+
+
+  
+  
+
+	
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="https://ibm.github.io/manifests/docs/">Documentation</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://ibm.github.io/manifests/docs/deployment/">Deployment</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="https://ibm.github.io/manifests/docs/deployment/install/" aria-disabled="true" class="btn-link disabled">Install Kubeflow</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Install Kubeflow</h1>
+	<div class="lead">Instructions for deploying Kubeflow on IBM Cloud Kubernetes Service</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<p>This guide describes how to use the kustomize + kubectl to deploy Kubeflow on IBM Cloud Kubernetes Service (IKS).</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>
+<p>Authenticate with IBM Cloud</p>
+<p>Log into IBM Cloud using the <a href="https://www.ibm.com/cloud/cli">IBM Cloud Command Line Interface (CLI)</a> as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud login
+</span></span></code></pre></div><p>Or, if you have federated credentials, run the following command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud login --sso
+</span></span></code></pre></div></li>
+<li>
+<p>Create and access a Kubernetes cluster on IKS</p>
+<p>To deploy Kubeflow on IBM Cloud, you need a cluster running on IKS. If you don&rsquo;t have a cluster running, follow the <a href="../../prerequisites/classic">Create an IBM Cloud cluster</a> guide.</p>
+<p>Run the following command to switch the Kubernetes context and access the cluster:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud ks cluster config --cluster &lt;cluster_name&gt;
+</span></span></code></pre></div><p>Replace <code>&lt;cluster_name&gt;</code> with your cluster name.</p>
+</li>
+<li>
+<p>kustomize (version 3.2.0) (<a href="https://github.com/kubernetes-sigs/kustomize/releases/tag/v3.2.0">download link</a>)</p>
+</li>
+<li>
+<p><a href="https://www.python.org/downloads/">Python 3</a> with <a href="https://pypi.org/project/passlib/">passlib</a>
+and <a href="https://pypi.org/project/bcrypt/">bcrypt</a> packages installed</p>
+</li>
+</ul>
+<h3 id="storage-setup-for-a-classic-ibm-cloud-kubernetes-cluster">Storage setup for a <strong>Classic</strong> IBM Cloud Kubernetes cluster</h3>
+<p><strong>Note</strong>: This section is only required when the worker nodes provider <code>WORKER_NODE_PROVIDER</code> is set to <code>classic</code>. For other infrastructures, IBM Cloud Storage with Group ID support is already set up as the cluster&rsquo;s default storage class.</p>
+<p>When you use the <code>classic</code> worker node provider of an IBM Cloud Kubernetes cluster, it uses the regular <a href="https://www.ibm.com/cloud/file-storage">IBM Cloud File Storage</a> based on NFS as the default storage class. File Storage is designed to run RWX (read-write multiple nodes) workloads with proper security built around it. Therefore, File Storage <a href="https://cloud.ibm.com/docs/containers?topic=containers-security#container">does not allow <code>fsGroup</code> securityContext</a> unless it&rsquo;s configured with Group ID, which is needed for the <a href="https://github.com/arrikto/oidc-authservice">OIDC authentication service</a> and Kubeflow Jupyter server.</p>
+<p>Therefore, you&rsquo;re recommended to set up the default storage class with Group ID support so that you can get the best experience from Kubeflow.</p>
+<ol>
+<li>
+<p>Set the File Storage with Group ID support as the default storage class.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">NEW_STORAGE_CLASS</span><span class="o">=</span>ibmc-file-gold-gid
+</span></span><span class="line"><span class="cl"><span class="nv">OLD_STORAGE_CLASS</span><span class="o">=</span><span class="k">$(</span>kubectl get sc -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[?(@.metadata.annotations.storageclass\.kubernetes\.io\/is-default-class==&#34;true&#34;)].metadata.name}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">kubectl patch storageclass <span class="si">${</span><span class="nv">NEW_STORAGE_CLASS</span><span class="si">}</span> -p <span class="s1">&#39;{&#34;metadata&#34;: {&#34;annotations&#34;:{&#34;storageclass.kubernetes.io/is-default-class&#34;:&#34;true&#34;}}}&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># List all the (default) storage classes</span>
+</span></span><span class="line"><span class="cl">kubectl get storageclass <span class="p">|</span> grep <span class="s2">&#34;(default)&#34;</span>
+</span></span></code></pre></div><p>Example output:</p>
+<pre tabindex="0"><code>ibmc-file-gold-gid (default)   ibm.io/ibmc-file    Delete          Immediate           false                  14h
+</code></pre></li>
+<li>
+<p>Make sure <code>ibmc-file-gold-gid</code> is the only <code>(default)</code> storage class. If there are two or more rows in the above output, unset the previous <code>(default)</code> storage classes with the command below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl patch storageclass <span class="si">${</span><span class="nv">OLD_STORAGE_CLASS</span><span class="si">}</span> -p <span class="s1">&#39;{&#34;metadata&#34;: {&#34;annotations&#34;:{&#34;storageclass.kubernetes.io/is-default-class&#34;:&#34;false&#34;}}}&#39;</span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="storage-setup-for-vpc-gen2-ibm-cloud-kubernetes-cluster">Storage setup for <strong>vpc-gen2</strong> IBM Cloud Kubernetes cluster</h3>
+<p><strong>Note</strong>: To deploy Kubeflow, you don&rsquo;t need to change the storage setup for <code>vpc-gen2</code> Kubernetes cluster.</p>
+<p>Currently, there is no option available for setting up RWX (read-write multiple nodes) type of storages.
+RWX is not a mandatory requirement to run Kubeflow and most pipelines.
+It is required by certain sample jobs/pipelines where multiple pods write results to a common storage.
+A job or a pipeline can also write to a common object storage like <code>minio</code>, so the absence of this feature is
+not a blocker for working with Kubeflow.
+Examples of jobs/pipelines that will not work, are:
+<a href="https://github.com/kubeflow/training-operator/tree/master/examples/tensorflow/mnist_with_summaries">Distributed training with Kubeflow TFJob</a></p>
+<p>If you are on <code>vpc-gen2</code> and still need RWX, you may try <a href="https://portworx.com/products/features/">portworx enterprise product</a>.
+To set it up on IBM Cloud use the <a href="https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/">portworx install with IBM Cloud</a> guide.</p>
+<h2 id="installation">Installation</h2>
+<p>Choose either <strong><a href="#single-user">single user</a></strong> or <strong><a href="#multi-user-auth-enabled">multi-user</a></strong> section based on your usage.</p>
+<p>If you&rsquo;re experiencing issues during the installation because of conflicts on your Kubeflow deployment, you can <a href="../uninstall">uninstall Kubeflow</a> and install it again.</p>
+<h2 id="single-user">Single user</h2>
+<p>Using kustomize together with kubectl to deploy kubeflow:</p>
+<ol>
+<li>
+<p>Clone the manifest repo as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/IBM/manifests.git -b v1.6-branch ibm-manifests-160
+</span></span></code></pre></div></li>
+<li>
+<p>Change directory to <code>ibm-manifests-160</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> ibm-manifests-160
+</span></span></code></pre></div></li>
+<li>
+<p>Generate password for default user: <code>user@example.com</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python3 -c <span class="s1">&#39;from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident=&#34;2y&#34;).hash(getpass.getpass()))&#39;</span>
+</span></span></code></pre></div><p>Type your password and press <code>&lt;Enter&gt;</code> after you see <code>Password:</code> prompt. Copy the hash code for next step.</p>
+</li>
+<li>
+<p>Edit <code>dist/stacks/ibm/application/dex-auth/custom-env.yaml</code> and fill the relevant field
+with the hash code from previous step:</p>
+<pre tabindex="0"><code>staticPasswords:
+- email: user@example.com
+  hash: &lt;enter the generated hash here&gt;
+</code></pre><p>You can also change the email value if needed.</p>
+</li>
+<li>
+<p>Apply the <code>kustomize</code> file under <code>iks-single</code> folder for single user deployment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">while</span> ! kustomize build iks-single 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">&#39;!/well-defined/&#39;</span> <span class="p">|</span> kubectl apply -f -<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&#34;Retrying to apply resources&#34;</span><span class="p">;</span> sleep 10<span class="p">;</span> <span class="k">done</span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="accessing-your-cluster">Accessing your cluster</h3>
+<p>The Kubeflow endpoint is exposed with <a href="https://kubernetes.io/docs/concepts/services-networking/service/#nodeport">NodePort</a> <code>30380</code>. To get a static ip, you can <a href="#expose-the-kubeflow-endpoint-as-a-loadbalancer">expose the Kubeflow endpoint as a LoadBalancer</a> and access the <strong>EXTERNAL_IP</strong>.</p>
+<p>For single-user Kubeflow, IBM Cloud uses Dex authentication by default. You can access the cluster using
+the email and password you specified in step 3 and 4 of <a href="#single-user">Single User</a></p>
+<h2 id="multi-user-auth-enabled">Multi-user, auth-enabled</h2>
+<p>Run the following steps to deploy Kubeflow with <a href="https://cloud.ibm.com/catalog/services/app-id">IBM Cloud AppID</a>
+as an authentication provider.</p>
+<p>The scenario is a Kubeflow cluster admin configures Kubeflow as a web
+application in AppID and manages user authentication with builtin identity
+providers (Cloud Directory, SAML, social log-in with Google or Facebook etc.) or
+custom providers.</p>
+<h3 id="prerequisites-1">Prerequisites</h3>
+<p>For authentication,  IBM Cloud uses <a href="https://cloud.ibm.com/catalog/services/app-id">AppID</a></p>
+<ol>
+<li>
+<p>Follow the <a href="https://cloud.ibm.com/catalog/services/app-id">Creating an App ID service instance on IBM Cloud</a> guide to learn about Kubeflow authentication.
+You can also learn <a href="https://cloud.ibm.com/docs/appid?topic=appid-getting-started">how to use App ID</a> with different authentication methods.</p>
+</li>
+<li>
+<p>Follow the <a href="https://cloud.ibm.com/docs/appid?topic=appid-app#app-register">Registering your app</a>
+section of the App ID guide to create an application with type
+<em>regularwebapp</em> under the provisioned AppID instance. Make sure the <em>scope</em>
+contains <em>email</em>. Then retrieve the following configuration parameters from your AppID:</p>
+<ul>
+<li><code>clientId</code></li>
+<li><code>secret</code></li>
+<li><code>oAuthServerUrl</code></li>
+</ul>
+<p>You will be using these information in the subsequent sections.</p>
+</li>
+<li>
+<p>Register the Kubeflow OIDC redirect page. The Kubeflow <code>REDIRECT_URL</code> URL is
+<code>[http|https]://&lt;kubeflow-FQDN&gt;/authservice/oidc/callback</code>, depends on if you enable the HTTPS or not.
+<code>&lt;kubeflow-FQDN&gt;</code> is the endpoint for accessing Kubeflow. By default, the <code>&lt;kubeflow-FQDN&gt;</code>
+on IBM Cloud is <code>&lt;worker_node_external_ip&gt;:30380</code>. To get a static ip, you can
+<a href="#expose-the-kubeflow-endpoint-as-a-loadbalancer">expose the Kubeflow endpoint as a LoadBalancer</a>
+and use the <strong>EXTERNAL_IP</strong> for your <code>&lt;kubeflow-FQDN&gt;</code>. Or use <code>ibmcloud ks nlb-dns</code> command
+to map the <strong>EXTERNAL_IP</strong> to the generated FQDN for your cluster. In this case, you use the
+generated FQDN as <code>kubeflow-FQDN</code>. If you enable HTTPS, you shall use generated FQDN.</p>
+</li>
+<li>
+<p>Then, you need to place the Kubeflow OIDC <code>REDIRECT_URL</code> under <strong>Manage Authentication</strong> &gt; <strong>Authentication settings</strong> &gt; <strong>Add web redirect URLs</strong>.</p>
+<img src="../appid-redirect-settings.png" alt="APP ID Redirect Settings" class="mt-3 mb-3 border border-info rounded">
+<p>Example:
+<code>https://my-kubeflow-442dbba0442be6c8c50f31ed96b00601-0000.sjc04.containers.appdomain.cloud/authservice/oidc/callback</code></p>
+</li>
+</ol>
+<h3 id="deploy-using-kustomize-together-with-kubectl">Deploy: Using kustomize together with kubectl</h3>
+<ol>
+<li>
+<p>Clone the manifest repo as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/IBM/manifests.git -b v1.6-branch ibm-manifests-160
+</span></span></code></pre></div></li>
+<li>
+<p>Change directory to <code>ibm-manifests-160</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> ibm-manifests-160
+</span></span></code></pre></div></li>
+<li>
+<p>Update the <code>dist/stacks/ibm/application/oidc-authservice-appid/params.env</code>
+with values collected in <a href="#prerequisites-1">Prereq</a> section.
+You will need the following values:</p>
+<ul>
+<li><code>&lt;oAuthServerUrl&gt;</code> - replace <code>&lt;APP_ID_oauthServerUrl&gt;</code></li>
+<li><code>&lt;kubeflow-FQDN&gt;</code> - fill in the FQDN of Kubeflow, if you don&rsquo;t know yet, just give a dummy one like
+<code>localhost</code>. Then change it after you got one. Or get default FQDN of your cluster by this command:
+<code>ibmcloud ks nlb-dns ls -c &lt;cluster name&gt;</code> (replace <code>&lt;cluter name&gt;</code> with your cluster name)</li>
+</ul>
+<p>Example:</p>
+<pre tabindex="0"><code>OIDC_PROVIDER=https://us-south.appid.cloud.ibm.com/oauth/v4/f341ff8b-a088-497a-same-5da4628df7fd
+REDIRECT_URL=https://my-kubeflow-442dbba0442be6c8c50f31ed96b00601-0000.sjc04.containers.appdomain.cloud/authservice/oidc/callback
+OIDC_AUTH_URL=https://us-south.appid.cloud.ibm.com/oauth/v4/f341ff8b-a088-497a-same-5da4628df7fd/authorization
+</code></pre></li>
+<li>
+<p>Update the <code>dist/stacks/ibm/application/oidc-authservice-appid/secret_params.env</code>
+with values collected in <a href="#prerequisites-1">Prereq</a> section.
+You will need the following values:</p>
+<ul>
+<li><code>&lt;clientId&gt;</code> - replace the <code>&lt;APP_ID_clientId&gt;</code></li>
+<li><code>&lt;secret&gt;</code> - replace the <code>&lt;APP_ID_secret&gt;</code></li>
+</ul>
+<p>Example:</p>
+<pre tabindex="0"><code>CLIENT_SECRET=NjNhZDA3ODAtM2I3MCSECRETLTkwN2QtNDdhYmU5ZGIyMTBl
+CLIENT_ID=52b3e496-8888-8888-ABC9-c0da309cdf52
+</code></pre></li>
+<li>
+<p>You can apply the <code>kustomize</code> file in <code>iks-multi</code> folder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">while</span> ! kustomize build iks-multi 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">&#39;!/well-defined/&#39;</span> <span class="p">|</span> kubectl apply -f -<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&#34;Retrying to apply resources&#34;</span><span class="p">;</span> sleep 10<span class="p">;</span> <span class="k">done</span>
+</span></span></code></pre></div></li>
+<li>
+<p>If at any point the values change and you have to change them, you can either patch the
+<a href="#patch-configmap">configmap</a> and <a href="#patch-secret">secret</a> or change the content in the
+files and apply the kustomize again. You will need to restart authservice with
+<code>kubectl delete pod -l app=authservice -n istio-system</code> .</p>
+<p>To apply just the <code>oidc-authservice-appid</code> you can use this command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kustomize build dist/stacks/ibm/application/oidc-authservice-appid <span class="p">|</span> kubectl apply -f -
+</span></span><span class="line"><span class="cl">kubectl delete pod -l <span class="nv">app</span><span class="o">=</span>authservice -n istio-system
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="verify-mutli-user-installation">Verify mutli-user installation</h3>
+<p>Check the pod <code>authservice-0</code> is in running state in namespace <code>istio-system</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">kubectl get pod -l <span class="nv">app</span><span class="o">=</span>authservice -n istio-system
+</span></span></code></pre></div><h3 id="extra-network-setup-requirement-for-vpc-gen2-clusters-only">Extra network setup requirement for <strong>vpc-gen2</strong> clusters only</h3>
+<p><strong>Note</strong>: These steps are not required for <code>classic</code> clusters, i.e. where <code>WORKER_NODE_PROVIDER</code> is set to <code>classic</code>.</p>
+<p>A <code>vpc-gen2</code> cluster does not assign a public IP address to the Kubernetes master node by default.
+It provides access via a Load Balancer, which is configured to allow only a set of ports over public internet.
+Access the cluster&rsquo;s resources in a <code>vpc-gen2</code> cluster, using one of the following options,</p>
+<ul>
+<li>
+<p>Load Balancer method: To configure via a Load Balancer, go to <a href="#expose-the-kubeflow-endpoint-as-a-loadbalancer">Expose the Kubeflow endpoint as a LoadBalancer</a>.
+This method is recommended when you have Kubeflow deployed with <a href="#multi-user-auth-enabled">Multi-user, auth-enabled</a> support — otherwise it will expose
+cluster resources to the public.</p>
+</li>
+<li>
+<p>Socks proxy method: If you need access to nodes or NodePort in the <code>vpc-gen2</code> cluster, this can be achieved by starting another instance in the
+same <code>vpc-gen2</code> cluster and assigning it a public IP (i.e. the floating IP). Next, use SSH to log into the instance or create an SSH socks proxy,
+such as <code>ssh -D9999 root@new-instance-public-ip</code>.</p>
+</li>
+</ul>
+<p>Then, configure the socks proxy at <code>localhost:9999</code> and access cluster services.</p>
+<ul>
+<li><code>kubectl port-forward</code> method: To access Kubeflow dashboard, run <code>kubectl -n istio-system port-forward service/istio-ingressgateway 7080:http2</code>.
+Then in a browser, go to<a href="http://127.0.0.1:7080/">http://127.0.0.1:7080/</a></li>
+</ul>
+<p><em><strong>Important notice</strong>: Exposing cluster/compute resources publicly without setting up a proper user authentication mechanism
+is very insecure and can have very serious consequences(even legal). If there is no need to expose cluster services publicly,
+Socks proxy method or <code>kubectl port-forward</code> method are recommended.</em></p>
+<h2 id="next-steps-secure-the-kubeflow-dashboard-with-https">Next steps: secure the Kubeflow dashboard with HTTPS</h2>
+<h3 id="prerequisites-2">Prerequisites</h3>
+<p>For both <code>classic</code> and <code>vpc-gen2</code> cluster providers, make sure you have <a href="#multi-user-auth-enabled">Multi-user, auth-enabled</a> Kubeflow set up.</p>
+<h3 id="setup">Setup</h3>
+<p>Follow the steps in <a href="../authentication/#exposing-the-kubeflow-dashboard-with-dns-and-tls-termination">Exposing the Kubeflow dashboard with DNS and TLS termination</a>.
+Then, you will have the required DNS name as Kubeflow FQDN to enable the OIDC flow for AppID:</p>
+<ol>
+<li>
+<p>Follow the step <a href="https://cloud.ibm.com/docs/appid?topic=appid-managing-idp#add-redirect-uri">Adding redirect URIs</a>
+to fill a URL for AppID to redirect to Kubeflow. The URL should look like <code>https://&lt;kubeflow-FQDN&gt;/authservice/oidc/callback</code>.</p>
+</li>
+<li>
+<p>Update the secret <code>appid-application-configuration</code> with the updated Kubeflow FQDN to replace <code>&lt;kubeflow-FQDN&gt;</code> in below command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">REDIRECT_URL</span><span class="o">=</span>https://&lt;kubeflow-FQDN&gt;/authservice/oidc/callback
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATCH</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span> <span class="s1">&#39;{&#34;data&#34;: {&#34;REDIRECT_URL&#34;: &#34;%s&#34;}}&#39;</span> <span class="s2">&#34;</span><span class="nv">$REDIRECT_URL</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubectl patch configmap/oidc-authservice-parameters -n istio-system -p<span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATCH</span><span class="s2">&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Restart the pod <code>authservice-0</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl delete pod -l <span class="nv">app</span><span class="o">=</span>authservice -n istio-system
+</span></span></code></pre></div></li>
+</ol>
+<p>Then, visit <code>https://&lt;kubeflow-FQDN&gt;/</code>. The page should redirect you to AppID for authentication.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="expose-the-kubeflow-endpoint-as-a-loadbalancer">Expose the Kubeflow endpoint as a LoadBalancer</h3>
+<p>By default, the Kubeflow deployment on IBM Cloud only exposes the endpoint as <a href="https://kubernetes.io/docs/concepts/services-networking/service/#nodeport">NodePort</a> 30380. If you want to expose the endpoint as a <a href="https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer">LoadBalancer</a>, run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl patch svc istio-ingressgateway -n istio-system -p <span class="s1">&#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;</span>
+</span></span></code></pre></div><p>Then, you can locate the LoadBalancer in the <strong>EXTERNAL_IP</strong> column when you run the following command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get svc istio-ingressgateway -n istio-system
+</span></span></code></pre></div><p>There is a small delay, usually ~5 mins, for above commands to take effect.</p>
+<h3 id="authservice-pod-taking-too-long-to-restart">Authservice pod taking too long to restart</h3>
+<p>You might see the <code>authservice-0</code> pod taking some time to restart. If that happens you can delete to pod which will kick off restart from kubernetes reconciler.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl delete pod -l <span class="nv">app</span><span class="o">=</span>authservice -n istio-system
+</span></span></code></pre></div>
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 The Kubeflow Authors. All Rights Reserved</small>
+        <small class="ml-1"><a href="https://www.ibm.com/us-en/privacy" target="_blank" rel="noopener">Privacy Policy</a></small>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="/manifests/js/main.min.dcf378a1184426694c54e4b705111a98593ce172d741265e17894976af6ee9db.js" integrity="sha256-3PN4oRhEJmlMVOS3BREamFk84XLXQSZeF4lJdq9u6ds=" crossorigin="anonymous"></script>
+<script src='/manifests/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

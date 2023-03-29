@@ -110,11 +110,16 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   [[params.versions]]
     version = "latest"
     githubbranch = "master"
-    url = "https://ibm.github.io/manifests/"
+    url = "/manifests/"
   [[params.versions]]
     version = "v1.7"
     githubbranch = "v1.7-branch"
-    url = "https://ibm.github.io/manifests/"
+    url = "/manifests/"
+  [[params.versions]]
+    version = "v1.6"
+    githubbranch = "v1.6-branch"
+    url = "/manifests/release/v1.6"
+
 
   # User interface configuration
   [params.ui]
