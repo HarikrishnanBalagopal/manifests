@@ -56,6 +56,22 @@ Follow the usual GitHub workflow of forking the repository on GitHub and then cl
 
 5. You can access your website at [http://localhost:1313/manifests/](http://localhost:1313/manifests/)
 
+
+### Build the static pages
+
+Use the following command to build the static pages and publish as github page:
+
+1. Generate static pages:
+  ```
+  HUGO_ENV="production" hugo --gc -d <destination folder>
+  ```
+
+2. Copy static pages to `/github-pages` directory
+  Currently, the github action is set up to publish the static pages under `github-pages` in `github-pages` branch when there
+  is any update in `github-pages` branch.
+
+3. Add a commit for the static pages and push to `github-pages` branch.
+
 ### Useful docs
 
 * [User guide for the Docsy theme](https://www.docsy.dev/docs/getting-started/)

@@ -69,7 +69,7 @@ kubenetes cluster&lt;/li&gt;
         
         
         &lt;h2 id=&#34;compatibility&#34;&gt;Compatibility&lt;/h2&gt;
-&lt;p&gt;The following table relates compatibility between Kubernetes versions 1.22+ of IBM Cloud Kubernetes service and Kubeflow version 1.7.&lt;/p&gt;
+&lt;p&gt;The following table relates compatibility between Kubernetes versions 1.24+ of IBM Cloud Kubernetes service and Kubeflow version 1.7.&lt;/p&gt;
 &lt;div class=&#34;table-responsive&#34;&gt;
   &lt;table class=&#34;table table-bordered&#34;&gt;
     &lt;thead class=&#34;-bg-primary&#34;&gt;
@@ -108,7 +108,7 @@ kubenetes cluster&lt;/li&gt;
     </item>
     
     <item>
-      <title>Docs: Install Kubeflow on IKS</title>
+      <title>Docs: Install Kubeflow</title>
       <link>https://ibm.github.io/manifests/docs/deployment/install/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -124,7 +124,7 @@ kubenetes cluster&lt;/li&gt;
 &lt;p&gt;Log into IBM Cloud using the &lt;a href=&#34;https://www.ibm.com/cloud/cli&#34;&gt;IBM Cloud Command Line Interface (CLI)&lt;/a&gt; as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ibmcloud login
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or, if you have federated credentials, run the following command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ibmcloud login --sso  
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ibmcloud login --sso
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Create and access a Kubernetes cluster on IKS&lt;/p&gt;
@@ -174,7 +174,7 @@ Examples of jobs/pipelines that will not work, are:
 &lt;p&gt;If you are on &lt;code&gt;vpc-gen2&lt;/code&gt; and still need RWX, you may try &lt;a href=&#34;https://portworx.com/products/features/&#34;&gt;portworx enterprise product&lt;/a&gt;.
 To set it up on IBM Cloud use the &lt;a href=&#34;https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/&#34;&gt;portworx install with IBM Cloud&lt;/a&gt; guide.&lt;/p&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;p&gt;Choose either &lt;strong&gt;single user&lt;/strong&gt; or &lt;strong&gt;multi-tenant&lt;/strong&gt; section based on your usage.&lt;/p&gt;
+&lt;p&gt;Choose either &lt;strong&gt;&lt;a href=&#34;#single-user&#34;&gt;single user&lt;/a&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;a href=&#34;#multi-user-auth-enabled&#34;&gt;multi-user&lt;/a&gt;&lt;/strong&gt; section based on your usage.&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re experiencing issues during the installation because of conflicts on your Kubeflow deployment, you can &lt;a href=&#34;../uninstall&#34;&gt;uninstall Kubeflow&lt;/a&gt; and install it again.&lt;/p&gt;
 &lt;h2 id=&#34;single-user&#34;&gt;Single user&lt;/h2&gt;
 &lt;p&gt;Using kustomize together with kubectl to deploy kubeflow:&lt;/p&gt;

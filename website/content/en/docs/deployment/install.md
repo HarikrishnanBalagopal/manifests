@@ -1,5 +1,5 @@
 +++
-title = "Install Kubeflow on IKS"
+title = "Install Kubeflow"
 description = "Instructions for deploying Kubeflow on IBM Cloud Kubernetes Service"
 weight = 6
 +++
@@ -19,7 +19,7 @@ This guide describes how to use the kustomize + kubectl to deploy Kubeflow on IB
   Or, if you have federated credentials, run the following command:
   
   ```shell
-  ibmcloud login --sso  
+  ibmcloud login --sso
   ```
 
 * Create and access a Kubernetes cluster on IKS
@@ -86,7 +86,7 @@ To set it up on IBM Cloud use the [portworx install with IBM Cloud](https://docs
 
 ## Installation 
 
-Choose either **single user** or **multi-tenant** section based on your usage.
+Choose either **[single user](#single-user)** or **[multi-user](#multi-user-auth-enabled)** section based on your usage.
 
 If you're experiencing issues during the installation because of conflicts on your Kubeflow deployment, you can [uninstall Kubeflow](../uninstall) and install it again.
 
