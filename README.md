@@ -30,7 +30,7 @@ This fork contains specific overlays on top of the original repository to deploy
   you to use different users to log into Kubeflow and provides user-level isolation. Each user operates on his/her namespace.
   The kustomization file used for this deployment is under [iks-multi](./iks-multi) directory.
 
-Detailed instructions for the two installations are [here](https://www.kubeflow.org/docs/distributions/ibm/deploy/install-kubeflow-on-iks/).
+Detailed instructions for the two installations are [here](https://ibm.github.io/manifests/docs/deployment/install/).
 ## The following information is from original repository:
 
 If you are a contributor authoring or editing the packages please see [Best Practices](./docs/KustomizeBestPractices.md).
