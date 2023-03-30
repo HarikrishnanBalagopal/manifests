@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubeflow on IKS – Deployment</title>
-    <link>https://ibm.github.io/manifests/docs/deployment/</link>
+    <link>https://ibm.github.io/manifests/release/v1.6/docs/deployment/</link>
     <description>Recent content in Deployment on Kubeflow on IKS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="https://ibm.github.io/manifests/docs/deployment/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://ibm.github.io/manifests/release/v1.6/docs/deployment/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: Kubeflow Deployment Process</title>
-      <link>https://ibm.github.io/manifests/docs/deployment/deployment-process/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/deployment/deployment-process/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/deployment/deployment-process/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/deployment/deployment-process/</guid>
       <description>
         
         
@@ -61,10 +61,10 @@ kubenetes cluster&lt;/li&gt;
     
     <item>
       <title>Docs: IBM Cloud Kubernetes and Kubeflow Compatibility</title>
-      <link>https://ibm.github.io/manifests/docs/deployment/compatibility/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/deployment/compatibility/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/deployment/compatibility/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/deployment/compatibility/</guid>
       <description>
         
         
@@ -75,7 +75,7 @@ kubenetes cluster&lt;/li&gt;
     &lt;thead class=&#34;-bg-primary&#34;&gt;
       &lt;tr&gt;
         &lt;th&gt;IBM Cloud Kubernetes Versions&lt;/th&gt;
-        &lt;th&gt;Kubeflow 1.6.0&lt;/th&gt;
+        &lt;th&gt;Kubeflow 1.7.0&lt;/th&gt;
       &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -113,10 +113,10 @@ kubenetes cluster&lt;/li&gt;
     
     <item>
       <title>Docs: Install Kubeflow</title>
-      <link>https://ibm.github.io/manifests/docs/deployment/install/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/deployment/install/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/deployment/install/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/deployment/install/</guid>
       <description>
         
         
@@ -375,10 +375,10 @@ to fill a URL for AppID to redirect to Kubeflow. The URL should look like &lt;co
     
     <item>
       <title>Docs: Securing the Kubeflow authentication with HTTPS</title>
-      <link>https://ibm.github.io/manifests/docs/deployment/authentication/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/deployment/authentication/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/deployment/authentication/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/deployment/authentication/</guid>
       <description>
         
         
@@ -599,10 +599,10 @@ the content of the cookie is retrieved from the browser, it can be added as a he
     
     <item>
       <title>Docs: Uninstall Kubeflow</title>
-      <link>https://ibm.github.io/manifests/docs/deployment/uninstall/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/deployment/uninstall/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/deployment/uninstall/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/deployment/uninstall/</guid>
       <description>
         
         

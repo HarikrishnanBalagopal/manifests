@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubeflow on IKS – How to Use Kubeflow</title>
-    <link>https://ibm.github.io/manifests/docs/started/</link>
+    <link>https://ibm.github.io/manifests/release/v1.6/docs/started/</link>
     <description>Recent content in How to Use Kubeflow on Kubeflow on IKS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="https://ibm.github.io/manifests/docs/started/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://ibm.github.io/manifests/release/v1.6/docs/started/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: Pipelines</title>
-      <link>https://ibm.github.io/manifests/docs/started/pipelines/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/started/pipelines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/started/pipelines/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/started/pipelines/</guid>
       <description>
         
         
@@ -145,10 +145,10 @@ uploading it to the pipeline list. This method is recommended if you are doing q
     
     <item>
       <title>Docs: Using IBM Cloud Container Registry (ICR)</title>
-      <link>https://ibm.github.io/manifests/docs/started/using-icr/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/started/using-icr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/started/using-icr/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/started/using-icr/</guid>
       <description>
         
         
@@ -158,7 +158,7 @@ uploading it to the pipeline list. This method is recommended if you are doing q
 &lt;li&gt;Install the CLI plug-in for the IBM Cloud Container Registry by running the command &lt;code&gt;ibmcloud plugin install container-registry&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Create a namespace in ICR with the command &lt;code&gt;ibmcloud cr namespace-add &amp;lt;my_namespace&amp;gt;&lt;/code&gt;, replace &lt;code&gt;&amp;lt;my_namespace&amp;gt;&lt;/code&gt; with your preferred name.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: The &lt;a href=&#34;https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started#gs_registry_namespace_add&#34;&gt;ICR namespace&lt;/a&gt; is different from the Kubeflow Profile namespace. The ICR namespace is used to group container images stored in ICR, while a &lt;a href=&#34;https://ibm.github.io/manifests/docs/components/multi-tenancy/overview/&#34;&gt;Kubeflow Profile&lt;/a&gt; namespace is a group of all Kubernetes clusters owned by a user.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: The &lt;a href=&#34;https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started#gs_registry_namespace_add&#34;&gt;ICR namespace&lt;/a&gt; is different from the Kubeflow Profile namespace. The ICR namespace is used to group container images stored in ICR, while a &lt;a href=&#34;https://ibm.github.io/manifests/release/v1.6/docs/components/multi-tenancy/overview/&#34;&gt;Kubeflow Profile&lt;/a&gt; namespace is a group of all Kubernetes clusters owned by a user.&lt;/p&gt;
 &lt;h2 id=&#34;image-pull-secret&#34;&gt;Image pull secret&lt;/h2&gt;
 &lt;p&gt;As a Kubernetes cluster uses the Secret of &lt;code&gt;docker-registry&lt;/code&gt; type to authenticate with a container registry to pull a private image, it needs an image pull secret to pull container images from IBM Cloud Container Registry. You can use the default image pull secret set up by the cluster or your account&amp;rsquo;s IAM API key.&lt;/p&gt;
 &lt;h3 id=&#34;using-a-default-image-pull-secret&#34;&gt;Using a default image pull secret&lt;/h3&gt;
@@ -209,10 +209,10 @@ class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
     
     <item>
       <title>Docs: End-to-end Kubeflow on IBM Cloud</title>
-      <link>https://ibm.github.io/manifests/docs/started/iks-e2e/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/started/iks-e2e/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/started/iks-e2e/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/started/iks-e2e/</guid>
       <description>
         
         
@@ -235,7 +235,7 @@ the range 0 to 9, as well as the labels identifying the digit in each image.&lt;
 (0 to 9) based on what it&amp;rsquo;s learned about handwritten images. In other words,
 you send an image to the model, and the model does its best to identify the
 digit shown in the image.
-&lt;img src=&#34;https://ibm.github.io/manifests/docs/images/gcp-e2e-ui-prediction.png&#34;
+&lt;img src=&#34;https://ibm.github.io/manifests/release/v1.6/docs/images/gcp-e2e-ui-prediction.png&#34;
 alt=&#34;Prediction UI&#34;
 class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In the above screenshot, the image shows a hand-written &lt;strong&gt;7&lt;/strong&gt;. This image was
@@ -246,7 +246,7 @@ Judging by this screenshot, the model seems pretty confident that this image
 is a 7.&lt;/p&gt;
 &lt;h3 id=&#34;the-overall-workflow&#34;&gt;The overall workflow&lt;/h3&gt;
 &lt;p&gt;The following diagram shows what you accomplish by following this guide:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ibm.github.io/manifests/docs/images/ibm-e2e-kubeflow.png&#34; 
+&lt;p&gt;&lt;img src=&#34;https://ibm.github.io/manifests/release/v1.6/docs/images/ibm-e2e-kubeflow.png&#34; 
 alt=&#34;ML workflow for training and serving an MNIST model&#34;
 class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In summary:&lt;/p&gt;
@@ -269,7 +269,7 @@ class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s time to get started!&lt;/p&gt;
 &lt;h2 id=&#34;run-the-mnist-tutorial-on-iks&#34;&gt;Run the MNIST Tutorial on IKS&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Follow the &lt;a href=&#34;https://ibm.github.io/manifests/docs/ibm/deploy/install-kubeflow&#34;&gt;IKS instructions&lt;/a&gt; to deploy Kubeflow.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;https://ibm.github.io/manifests/release/v1.6/docs/ibm/deploy/install-kubeflow&#34;&gt;IKS instructions&lt;/a&gt; to deploy Kubeflow.&lt;/li&gt;
 &lt;li&gt;Launch a Jupyter notebook.&lt;/li&gt;
 &lt;li&gt;Launch a terminal in Jupyter and clone the Kubeflow examples repo.
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/kubeflow/examples.git git_kubeflow-examples

@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubeflow on IKS – Prerequisites</title>
-    <link>https://ibm.github.io/manifests/docs/prerequisites/</link>
+    <link>https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/</link>
     <description>Recent content in Prerequisites on Kubeflow on IKS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="https://ibm.github.io/manifests/docs/prerequisites/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: Kubernetes Cluster on Classic Infra</title>
-      <link>https://ibm.github.io/manifests/docs/prerequisites/classic/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/classic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/prerequisites/classic/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/classic/</guid>
       <description>
         
         
@@ -49,7 +49,7 @@
 &lt;p&gt;If you have an existing cluster, use it to install Kubeflow as far as it meets the minimum system requirement.&lt;/p&gt;
 &lt;p&gt;Get the Kubeconfig file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ibmcloud ks cluster config --cluster &lt;span class=&#34;nv&#34;&gt;$CLUSTER_NAME&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From here on, go to &lt;a href=&#34;https://ibm.github.io/manifests/docs/ibm/deploy/install-kubeflow-on-iks&#34;&gt;Install Kubeflow on IKS&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From here on, go to &lt;a href=&#34;https://ibm.github.io/manifests/release/v1.6/docs/ibm/deploy/install-kubeflow-on-iks&#34;&gt;Install Kubeflow on IKS&lt;/a&gt; for more information.&lt;/p&gt;
 &lt;h2 id=&#34;create-and-setup-a-new-cluster&#34;&gt;Create and setup a new cluster&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Use a &lt;code&gt;classic&lt;/code&gt; provider if you want to try out Kubeflow.&lt;/li&gt;
@@ -59,7 +59,7 @@
 a relatively simpler networking setup. Services exposed using Kubernetes &lt;code&gt;NodePort&lt;/code&gt; need to be secured using
 authentication mechanism.&lt;/p&gt;
 &lt;p&gt;To create a cluster with &lt;code&gt;vpc-gen2&lt;/code&gt; provider, follow the
-&lt;a href=&#34;https://ibm.github.io/manifests/docs/ibm/create-cluster-vpc&#34;&gt;Create a cluster on IKS with a &lt;code&gt;vpc-gen2&lt;/code&gt; provider&lt;/a&gt;
+&lt;a href=&#34;https://ibm.github.io/manifests/release/v1.6/docs/ibm/create-cluster-vpc&#34;&gt;Create a cluster on IKS with a &lt;code&gt;vpc-gen2&lt;/code&gt; provider&lt;/a&gt;
 guide.&lt;/p&gt;
 &lt;p&gt;The next section will explain how to create and set up a new IBM Cloud Kubernetes Service (IKS)&lt;/p&gt;
 &lt;h3 id=&#34;setting-environment-variables&#34;&gt;Setting environment variables&lt;/h3&gt;
@@ -147,10 +147,10 @@ command to periodically check the state of your cluster. Your cluster is ready w
     
     <item>
       <title>Docs: Kubernetes cluster on a VPC</title>
-      <link>https://ibm.github.io/manifests/docs/prerequisites/vpc/</link>
+      <link>https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/vpc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ibm.github.io/manifests/docs/prerequisites/vpc/</guid>
+      <guid>https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/vpc/</guid>
       <description>
         
         

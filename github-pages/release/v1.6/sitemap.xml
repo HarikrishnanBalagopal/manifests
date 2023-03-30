@@ -2,83 +2,83 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/deployment/deployment-process/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/deployment/deployment-process/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/started/pipelines/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/started/pipelines/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/deployment/compatibility/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/deployment/compatibility/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/deployment/install/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/deployment/install/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/started/using-icr/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/started/using-icr/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/started/iks-e2e/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/started/iks-e2e/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/blog/automation/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/blog/automation/</loc>
     <lastmod>2023-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/deployment/authentication/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/deployment/authentication/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/prerequisites/classic/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/classic/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/prerequisites/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/deployment/uninstall/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/deployment/uninstall/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/prerequisites/vpc/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/prerequisites/vpc/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/deployment/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/deployment/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/docs/started/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/docs/started/</loc>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/blog/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/blog/</loc>
     <lastmod>2023-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/</loc>
     <lastmod>2023-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/blog/automation/schematics/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/blog/automation/schematics/</loc>
     <lastmod>2023-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/search/</loc>
+    <loc>https://ibm.github.io/manifests/https://ibm.github.io/manifests/release/v1.6/search/</loc>
   </url>
   
 </urlset>
