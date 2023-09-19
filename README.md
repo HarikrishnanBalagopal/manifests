@@ -57,20 +57,21 @@ This repo periodically syncs all official Kubeflow components from their respect
 
 | Component | Local Manifests Path | Upstream Revision |
 | - | - | - |
-| Training Operator | apps/training-operator/upstream | [v1.6.0-rc.0](https://github.com/kubeflow/training-operator/tree/v1.6.0-rc.0/manifests) |
-| Notebook Controller | apps/jupyter/notebook-controller/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/notebook-controller/config) |
-| Tensorboard Controller | apps/tensorboard/tensorboard-controller/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/tensorboard-controller/config) |
-| Central Dashboard | apps/centraldashboard/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/centraldashboard/manifests) |
-| Profiles + KFAM | apps/profiles/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/profile-controller/config) |
-| PodDefaults Webhook | apps/admission-webhook/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/admission-webhook/manifests) |
-| Jupyter Web App | apps/jupyter/jupyter-web-app/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/crud-web-apps/jupyter/manifests) |
-| Tensorboards Web App | apps/tensorboard/tensorboards-web-app/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/crud-web-apps/tensorboards/manifests) |
-| Volumes Web App | apps/volumes-web-app/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.7.0-rc.0/components/crud-web-apps/volumes/manifests) |
-| Katib | apps/katib/upstream | [v0.15.0-rc.0](https://github.com/kubeflow/katib/tree/v0.15.0-rc.0/manifests/v1beta1) |
-| KServe | contrib/kserve/kserve | [v0.10.0](https://github.com/kserve/kserve/tree/v0.10.0/install/v0.10.0) |
+| Training Operator | apps/training-operator/upstream | [v1.7.0-rc.0](https://github.com/kubeflow/training-operator/tree/v1.7.0-rc.0/manifests) |
+| Notebook Controller | apps/jupyter/notebook-controller/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/notebook-controller/config) |
+| PVC Viewer Controller | apps/pvcviewer-roller/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/pvcviewer-controller/config) |
+| Tensorboard Controller | apps/tensorboard/tensorboard-controller/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/tensorboard-controller/config) |
+| Central Dashboard | apps/centraldashboard/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/centraldashboard/manifests) |
+| Profiles + KFAM | apps/profiles/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/profile-controller/config) |
+| PodDefaults Webhook | apps/admission-webhook/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/admission-webhook/manifests) |
+| Jupyter Web App | apps/jupyter/jupyter-web-app/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/crud-web-apps/jupyter/manifests) |
+| Tensorboards Web App | apps/tensorboard/tensorboards-web-app/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/crud-web-apps/tensorboards/manifests) |
+| Volumes Web App | apps/volumes-web-app/upstream | [v1.8.0-rc.0](https://github.com/kubeflow/kubeflow/tree/v1.8.0-rc.0/components/crud-web-apps/volumes/manifests) |
+| Katib | apps/katib/upstream | [v0.16.0-rc.1](https://github.com/kubeflow/katib/tree/v0.16.0-rc.1/manifests/v1beta1) |
+| KServe | contrib/kserve/kserve | [v0.11.0](https://github.com/kserve/kserve/tree/v0.11.0/install/v0.11.0) |
 | KServe Models Web App | contrib/kserve/models-web-app | [v0.10.0](https://github.com/kserve/models-web-app/tree/v0.10.0/config) |
-| Kubeflow Pipelines | apps/pipeline/upstream | [2.0.0-alpha.7](https://github.com/kubeflow/pipelines/tree/2.0.0-alpha.7/manifests/kustomize) |
-| Kubeflow Tekton Pipelines | apps/kfp-tekton/upstream | [v1.5.1](https://github.com/kubeflow/kfp-tekton/tree/v1.5.1/manifests/kustomize) |
+| Kubeflow Pipelines | apps/pipeline/upstream | [2.0.1](https://github.com/kubeflow/pipelines/tree/2.0.1/manifests/kustomize) |
+| Kubeflow Tekton Pipelines | apps/kfp-tekton/upstream | [v2.0.0](https://github.com/kubeflow/kfp-tekton/tree/v2.0.0/manifests/kustomize) |
 
 The following is also a matrix with versions from common components that are
 used from the different projects of Kubeflow:
@@ -180,6 +181,25 @@ kustomize build common/istio-1-17/istio-namespace/base | kubectl apply -f -
 kustomize build common/istio-1-17/istio-install/base | kubectl apply -f -
 ```
 
+#### AuthService
+
+The OIDC AuthService extends your Istio Ingress-Gateway capabilities, to be able to function as an OIDC client:
+
+```sh
+kustomize build common/oidc-client/oidc-authservice/base | kubectl apply -f -
+```
+
+<details>
+  <summary>oauth2-proxy alternative</summary>
+
+You can use [OAuth2-proxy](https://github.com/oauth2-proxy/oauth2-proxy) instead of [OIDC AuthService](https://github.com/arrikto/oidc-authservice). To do so, run the following command instead
+
+```sh
+kustomize build  common/oidc-client/oauth2-proxy/base | kubectl apply -f -
+```
+
+</details>
+
 #### Dex
 
 Dex is an OpenID Connect Identity (OIDC) with multiple authentication backends. In this default installation, it includes a static user with email `user@example.com`. By default, the user's password is `12341234`. For any production Kubeflow deployment, you should change the default password by following [the relevant section](#change-default-user-password).
@@ -190,14 +210,8 @@ Install Dex:
 kustomize build common/dex/overlays/istio | kubectl apply -f -
 ```
 
-#### OIDC AuthService
-
-The OIDC AuthService extends your Istio Ingress-Gateway capabilities, to be able to function as an OIDC client:
-
-```sh
-kustomize build common/oidc-authservice/base | kubectl apply -f -
-```
-
+> If you are using `oauth2-proxy` as auth envoy filter, you should be using `common/dex/overlays/oauth2-proxy` instead.
+ 
 #### Knative
 
 Knative is used by the KServe official Kubeflow component.
@@ -340,6 +354,14 @@ Install the Jupyter Web App official Kubeflow component:
 
 ```sh
 kustomize build apps/jupyter/jupyter-web-app/upstream/overlays/istio | kubectl apply -f -
+```
+
+#### PVC Viewer Controller 
+
+Install the PVC Viewer Controller official Kubeflow component:
+
+```sh
+kustomize build apps/pvcviewer-controller/upstream/default | kubectl apply -f -
 ```
 
 #### Profiles + KFAM
