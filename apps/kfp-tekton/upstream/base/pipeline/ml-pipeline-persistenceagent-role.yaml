@@ -26,6 +26,13 @@ rules:
   verbs:
   - get
 - apiGroups:
+  - pipelines.kubeflow.org
+  resources:
+  - scheduledworkflows
+  - workflows
+  verbs:
+  - report
+- apiGroups:
   - tekton.dev
   resources:
   - pipelineruns
