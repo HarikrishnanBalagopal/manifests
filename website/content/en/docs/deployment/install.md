@@ -121,7 +121,14 @@ Using kustomize together with kubectl to deploy kubeflow:
    ```
    You can also change the email value if needed.
 
-5. Apply the `kustomize` file under `iks-single` folder for single user deployment:
+5. (For KFP-Tekton V1) By default, the IBM Cloud deployment runs on KFP-Tekton V2 which is not backward compatible. If you want to deploy KFP-Tekton V1 for your deployment, edit the following lines at `iks-single/kustomization.yaml`. 
+   Change `- ../dist/stacks/ibm/application/kfp-tekton` to `- ../dist/stacks/ibm/application/kfp-tekton-v1`
+   ```yaml
+   # - ../dist/stacks/ibm/application/kfp-tekton
+   - ../dist/stacks/ibm/application/kfp-tekton-v1
+   ```
+
+6. Apply the `kustomize` file under `iks-single` folder for single user deployment:
 
    ```shell
    while ! kustomize build iks-single 2>/dev/null | awk '!/well-defined/' | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
@@ -217,13 +224,20 @@ You can also learn [how to use App ID](https://cloud.ibm.com/docs/appid?topic=ap
    CLIENT_ID=52b3e496-8888-8888-ABC9-c0da309cdf52
    ```
 
-5. You can apply the `kustomize` file in `iks-multi` folder:
+5. (For KFP-Tekton V1) By default, the IBM Cloud deployment runs on KFP-Tekton V2 which is not backward compatible. If you want to deploy KFP-Tekton V1 for your deployment, edit the following lines at `iks-multi/kustomization.yaml`. 
+   Change `- ../dist/stacks/ibm/application/kfp-tekton` to `- ../dist/stacks/ibm/application/kfp-tekton-v1`
+   ```yaml
+   # - ../dist/stacks/ibm/application/kfp-tekton
+   - ../dist/stacks/ibm/application/kfp-tekton-v1
+   ```
+
+6. You can apply the `kustomize` file in `iks-multi` folder:
 
    ```bash
    while ! kustomize build iks-multi 2>/dev/null | awk '!/well-defined/' | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
    ```
 
-6. If at any point the values change and you have to change them, you can either patch the
+7. If at any point the values change and you have to change them, you can either patch the
    [configmap](#patch-configmap) and [secret](#patch-secret) or change the content in the
    files and apply the kustomize again. You will need to restart authservice with
    `kubectl delete pod -l app=authservice -n istio-system` .
