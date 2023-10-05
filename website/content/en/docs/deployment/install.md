@@ -97,13 +97,13 @@ Using kustomize together with kubectl to deploy kubeflow:
 1. Clone the manifest repo as follows:
 
    ```shell
-   git clone https://github.com/IBM/manifests.git -b v1.7-branch ibm-manifests-17
+   git clone https://github.com/IBM/manifests.git -b v1.8-branch ibm-manifests-18
    ```
 
-2. Change directory to `ibm-manifests-17`:
+2. Change directory to `ibm-manifests-18`:
 
    ```shell
-   cd ibm-manifests-17
+   cd ibm-manifests-18
    ```
 
 3. Generate password for default user: `user@example.com`
@@ -181,13 +181,13 @@ You can also learn [how to use App ID](https://cloud.ibm.com/docs/appid?topic=ap
 1. Clone the manifest repo as follows:
 
    ```shell
-   git clone https://github.com/IBM/manifests.git -b v1.7-branch ibm-manifests-17
+   git clone https://github.com/IBM/manifests.git -b v1.8-branch ibm-manifests-18
    ```
 
-2. Change directory to `ibm-manifests-17`:
+2. Change directory to `ibm-manifests-18`:
 
    ```shell
-   cd ibm-manifests-17
+   cd ibm-manifests-18
    ```
 
 3. Update the `dist/stacks/ibm/application/oidc-authservice-appid/params.env`

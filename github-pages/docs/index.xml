@@ -4,6 +4,7 @@
     <link>https://ibm.github.io/manifests/docs/</link>
     <description>Recent content in Documentation on Kubeflow on IKS</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     
 	  <atom:link href="https://ibm.github.io/manifests/docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -199,22 +200,30 @@ uploading it to the pipeline list. This method is recommended if you are doing q
         
         
         &lt;h2 id=&#34;compatibility&#34;&gt;Compatibility&lt;/h2&gt;
-&lt;p&gt;The following table relates compatibility between Kubernetes versions 1.24+ of IBM Cloud Kubernetes service and Kubeflow version 1.7.&lt;/p&gt;
+&lt;p&gt;The following table relates compatibility between Kubernetes versions 1.25+ of IBM Cloud Kubernetes service and Kubeflow version 1.8.&lt;/p&gt;
 &lt;div class=&#34;table-responsive&#34;&gt;
   &lt;table class=&#34;table table-bordered&#34;&gt;
     &lt;thead class=&#34;-bg-primary&#34;&gt;
       &lt;tr&gt;
         &lt;th&gt;IBM Cloud Kubernetes Versions&lt;/th&gt;
-        &lt;th&gt;Kubeflow 1.7.0&lt;/th&gt;
+        &lt;th&gt;Kubeflow 1.8.0&lt;/th&gt;
       &lt;/tr&gt;
     &lt;/thead&gt;
       &lt;tbody&gt;
       &lt;tr&gt;
-        &lt;td&gt;1.24&lt;/td&gt;
+        &lt;td&gt;1.25&lt;/td&gt;
         &lt;td&gt;&lt;b&gt;Compatible&lt;/b&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-        &lt;td&gt;1.25&lt;/td&gt;
+        &lt;td&gt;1.26&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;Compatible&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1.27&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;Compatible&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1.28&lt;/td&gt;
         &lt;td&gt;&lt;b&gt;Compatible&lt;/b&gt;&lt;/td&gt;
       &lt;/tr&gt;
     &lt;/tbody&gt;
@@ -311,11 +320,11 @@ To set it up on IBM Cloud use the &lt;a href=&#34;https://docs.portworx.com/port
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Clone the manifest repo as follows:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/IBM/manifests.git -b v1.7-branch ibm-manifests-17
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/IBM/manifests.git -b v1.8-branch ibm-manifests-18
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Change directory to &lt;code&gt;ibm-manifests-17&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ibm-manifests-17
+&lt;p&gt;Change directory to &lt;code&gt;ibm-manifests-18&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ibm-manifests-18
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Generate password for default user: &lt;code&gt;user@example.com&lt;/code&gt;&lt;/p&gt;
@@ -386,11 +395,11 @@ generated FQDN as &lt;code&gt;kubeflow-FQDN&lt;/code&gt;. If you enable HTTPS, y
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Clone the manifest repo as follows:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/IBM/manifests.git -b v1.7-branch ibm-manifests-17
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/IBM/manifests.git -b v1.8-branch ibm-manifests-18
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Change directory to &lt;code&gt;ibm-manifests-17&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ibm-manifests-17
+&lt;p&gt;Change directory to &lt;code&gt;ibm-manifests-18&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ibm-manifests-18
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Update the &lt;code&gt;dist/stacks/ibm/application/oidc-authservice-appid/params.env&lt;/code&gt;
@@ -1012,7 +1021,7 @@ command to periodically check the state of your cluster. Your cluster is ready w
 &lt;li&gt;
 &lt;p&gt;Go to your Kubeflow deployment directory where you download the
 IBM manifests repository: &lt;a href=&#34;https://github.com/IBM/manifests.git&#34;&gt;https://github.com/IBM/manifests.git&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ibm-manifests-17
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ibm-manifests-18
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following command to get Kubeflow Profiles:&lt;/p&gt;

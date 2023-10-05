@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.111.2">
+<meta name="generator" content="Hugo 0.119.0">
 <meta name="robots" content="index, follow">
 
 
@@ -25,7 +25,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ibm.github.io/manifests/docs/deployment/install/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Kubeflow on IKS" />
+
 <meta itemprop="name" content="Install Kubeflow">
 <meta itemprop="description" content="Instructions for deploying Kubeflow on IBM Cloud Kubernetes Service">
 
@@ -71,7 +71,9 @@
 	
 	<a class="dropdown-item" href="/manifests/">latest</a>
 	
-	<a class="dropdown-item" href="/manifests/">v1.7</a>
+	<a class="dropdown-item" href="/manifests/">v1.8</a>
+	
+	<a class="dropdown-item" href="/manifests/release/v1.7">v1.7</a>
 	
 	<a class="dropdown-item" href="/manifests/release/v1.6">v1.6</a>
 	
@@ -341,11 +343,11 @@ To set it up on IBM Cloud use the <a href="https://docs.portworx.com/portworx-in
 <ol>
 <li>
 <p>Clone the manifest repo as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/IBM/manifests.git -b v1.7-branch ibm-manifests-17
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/IBM/manifests.git -b v1.8-branch ibm-manifests-18
 </span></span></code></pre></div></li>
 <li>
-<p>Change directory to <code>ibm-manifests-17</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> ibm-manifests-17
+<p>Change directory to <code>ibm-manifests-18</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> ibm-manifests-18
 </span></span></code></pre></div></li>
 <li>
 <p>Generate password for default user: <code>user@example.com</code></p>
@@ -416,11 +418,11 @@ generated FQDN as <code>kubeflow-FQDN</code>. If you enable HTTPS, you shall use
 <ol>
 <li>
 <p>Clone the manifest repo as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/IBM/manifests.git -b v1.7-branch ibm-manifests-17
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/IBM/manifests.git -b v1.8-branch ibm-manifests-18
 </span></span></code></pre></div></li>
 <li>
-<p>Change directory to <code>ibm-manifests-17</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> ibm-manifests-17
+<p>Change directory to <code>ibm-manifests-18</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> ibm-manifests-18
 </span></span></code></pre></div></li>
 <li>
 <p>Update the <code>dist/stacks/ibm/application/oidc-authservice-appid/params.env</code>

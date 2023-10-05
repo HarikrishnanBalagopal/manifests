@@ -6,23 +6,31 @@ weight = 6
 
 ## Compatibility
 
-The following table relates compatibility between Kubernetes versions 1.24+ of IBM Cloud Kubernetes service and Kubeflow version 1.7.
+The following table relates compatibility between Kubernetes versions 1.25+ of IBM Cloud Kubernetes service and Kubeflow version 1.8.
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="-bg-primary">
       <tr>
         <th>IBM Cloud Kubernetes Versions</th>
-        <th>Kubeflow 1.7.0</th>
+        <th>Kubeflow 1.8.0</th>
       </tr>
     </thead>
       <tbody>
       <tr>
-        <td>1.24</td>
+        <td>1.25</td>
         <td><b>Compatible</b></td>
       </tr>
       <tr>
-        <td>1.25</td>
+        <td>1.26</td>
+        <td><b>Compatible</b></td>
+      </tr>
+      <tr>
+        <td>1.27</td>
+        <td><b>Compatible</b></td>
+      </tr>
+      <tr>
+        <td>1.28</td>
         <td><b>Compatible</b></td>
       </tr>
     </tbody>

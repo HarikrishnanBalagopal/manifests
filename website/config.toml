@@ -1,4 +1,4 @@
-baseURL = "https://ibm.github.io/manifests/"
+baseURL = "https://ibm.github.io/manifests"
 title = "Kubeflow on IKS"
 description = "Kubeflow Deployment on IBM Cloud Kubernetes Service"
 
@@ -109,12 +109,16 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   # These entries appear in the drop-down menu at the top of the website.
   [[params.versions]]
     version = "latest"
-    githubbranch = "master"
+    githubbranch = "v1.8-branch"
+    url = "/manifests/"
+  [[params.versions]]
+    version = "v1.8"
+    githubbranch = "v1.8-branch"
     url = "/manifests/"
   [[params.versions]]
     version = "v1.7"
     githubbranch = "v1.7-branch"
-    url = "/manifests/"
+    url = "/manifests/release/v1.7"
   [[params.versions]]
     version = "v1.6"
     githubbranch = "v1.6-branch"

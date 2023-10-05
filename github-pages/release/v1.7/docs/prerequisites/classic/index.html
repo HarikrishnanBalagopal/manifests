@@ -1,0 +1,414 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.119.0">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/manifests/release/v1.7/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/manifests/release/v1.7/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/manifests/release/v1.7/favicons/android-192x192.png" sizes="192x192">
+
+<title>Kubernetes Cluster on Classic Infra | Kubeflow on IKS</title>
+<meta name="description" content="Create your cluster on a classic compute, networking, and storage environment in IBM Cloud infrastructure">
+<meta property="og:title" content="Kubernetes Cluster on Classic Infra" />
+<meta property="og:description" content="Create your cluster on a classic compute, networking, and storage environment in IBM Cloud infrastructure" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ibm.github.io/manifests/release/v1.7/docs/prerequisites/classic/" /><meta property="article:section" content="docs" />
+
+
+<meta itemprop="name" content="Kubernetes Cluster on Classic Infra">
+<meta itemprop="description" content="Create your cluster on a classic compute, networking, and storage environment in IBM Cloud infrastructure">
+
+<meta itemprop="wordCount" content="1006">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernetes Cluster on Classic Infra"/>
+<meta name="twitter:description" content="Create your cluster on a classic compute, networking, and storage environment in IBM Cloud infrastructure"/>
+
+
+
+
+<link rel="preload" href="/manifests/release/v1.7/scss/main.min.3939a80c32100bd99b05b4aca0c29c287b38bf74cd6cdb77ecdb245c4fa5d76d.css" as="style">
+<link href="/manifests/release/v1.7/scss/main.min.3939a80c32100bd99b05b4aca0c29c287b38bf74cd6cdb77ecdb245c4fa5d76d.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/manifests/release/v1.7/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Kubeflow on IKS</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/manifests/release/v1.7/docs/"><i class='fas fa-book pr-2'></i><span class="active">Documentation</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/manifests/release/v1.7/blog/"><i class='fas fa-rss pr-2'></i><span>Blog</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="https://github.com/IBM/manifests" target="_blank"><i class='fab fa-github pr-2'></i><span>GitHub</span></a>
+      </li>
+      <li class="nav-item dropdown mr-4 d-none d-lg-block">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Release Version
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	
+	
+	<a class="dropdown-item" href="/manifests/">latest</a>
+	
+	<a class="dropdown-item" href="/manifests/">v1.8</a>
+	
+	<a class="dropdown-item" href="/manifests/release/v1.7">v1.7</a>
+	
+	<a class="dropdown-item" href="/manifests/release/v1.6">v1.6</a>
+	
+</div>
+</li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-manifestsreleasev17docs-li">
+  <a href="/manifests/release/v1.7/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-manifestsreleasev17docs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-manifestsreleasev17docsprerequisites-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsprerequisites-check" checked/>
+  <label for="m-manifestsreleasev17docsprerequisites-check"><a href="/manifests/release/v1.7/docs/prerequisites/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manifestsreleasev17docsprerequisites"><span class="">Prerequisites</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-manifestsreleasev17docsprerequisitesclassic-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsprerequisitesclassic-check" checked/>
+  <label for="m-manifestsreleasev17docsprerequisitesclassic-check"><a href="/manifests/release/v1.7/docs/prerequisites/classic/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsprerequisitesclassic"><span class="td-sidebar-nav-active-item">Kubernetes Cluster on Classic Infra</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsprerequisitesvpc-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsprerequisitesvpc-check"/>
+  <label for="m-manifestsreleasev17docsprerequisitesvpc-check"><a href="/manifests/release/v1.7/docs/prerequisites/vpc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsprerequisitesvpc"><span class="">Kubernetes cluster on a VPC</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-manifestsreleasev17docsdeployment-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsdeployment-check"/>
+  <label for="m-manifestsreleasev17docsdeployment-check"><a href="/manifests/release/v1.7/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manifestsreleasev17docsdeployment"><span class="">Deployment</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsdeploymentdeployment-process-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsdeploymentdeployment-process-check"/>
+  <label for="m-manifestsreleasev17docsdeploymentdeployment-process-check"><a href="/manifests/release/v1.7/docs/deployment/deployment-process/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsdeploymentdeployment-process"><span class="">Kubeflow Deployment Process</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsdeploymentcompatibility-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsdeploymentcompatibility-check"/>
+  <label for="m-manifestsreleasev17docsdeploymentcompatibility-check"><a href="/manifests/release/v1.7/docs/deployment/compatibility/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsdeploymentcompatibility"><span class="">IBM Cloud Kubernetes and Kubeflow Compatibility</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsdeploymentinstall-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsdeploymentinstall-check"/>
+  <label for="m-manifestsreleasev17docsdeploymentinstall-check"><a href="/manifests/release/v1.7/docs/deployment/install/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsdeploymentinstall"><span class="">Install Kubeflow</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsdeploymentauthentication-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsdeploymentauthentication-check"/>
+  <label for="m-manifestsreleasev17docsdeploymentauthentication-check"><a href="/manifests/release/v1.7/docs/deployment/authentication/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsdeploymentauthentication"><span class="">Securing the Kubeflow authentication with HTTPS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsdeploymentuninstall-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsdeploymentuninstall-check"/>
+  <label for="m-manifestsreleasev17docsdeploymentuninstall-check"><a href="/manifests/release/v1.7/docs/deployment/uninstall/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsdeploymentuninstall"><span class="">Uninstall Kubeflow</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-manifestsreleasev17docsstarted-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsstarted-check"/>
+  <label for="m-manifestsreleasev17docsstarted-check"><a href="/manifests/release/v1.7/docs/started/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manifestsreleasev17docsstarted"><span class="">How to Use Kubeflow</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsstartedpipelines-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsstartedpipelines-check"/>
+  <label for="m-manifestsreleasev17docsstartedpipelines-check"><a href="/manifests/release/v1.7/docs/started/pipelines/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsstartedpipelines"><span class="">Pipelines</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsstartedusing-icr-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsstartedusing-icr-check"/>
+  <label for="m-manifestsreleasev17docsstartedusing-icr-check"><a href="/manifests/release/v1.7/docs/started/using-icr/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsstartedusing-icr"><span class="">Using IBM Cloud Container Registry (ICR)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manifestsreleasev17docsstartediks-e2e-li">
+  <input type="checkbox" id="m-manifestsreleasev17docsstartediks-e2e-check"/>
+  <label for="m-manifestsreleasev17docsstartediks-e2e-check"><a href="/manifests/release/v1.7/docs/started/iks-e2e/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manifestsreleasev17docsstartediks-e2e"><span class="">End-to-end Kubeflow on IBM Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/IBM/manifests/tree/github-pages/website/content/en/docs/prerequisites/classic.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/IBM/manifests/edit/github-pages/website/content/en/docs/prerequisites/classic.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/IBM/manifests/new/github-pages/website/content/en/docs/prerequisites/classic.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/IBM/manifests/issues/new?title=Kubernetes%20Cluster%20on%20Classic%20Infra" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/IBM/manifests/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#connecting-to-an-existing-cluster">Connecting to an existing cluster</a></li>
+    <li><a href="#create-and-setup-a-new-cluster">Create and setup a new cluster</a>
+      <ul>
+        <li><a href="#setting-environment-variables">Setting environment variables</a></li>
+        <li><a href="#choosing-a-worker-node-flavor">Choosing a worker node flavor</a></li>
+        <li><a href="#creating-an-ibm-cloud-kubernetes-cluster">Creating an IBM Cloud Kubernetes cluster</a></li>
+        <li><a href="#verifying-the-cluster">Verifying the cluster</a></li>
+        <li><a href="#delete-the-cluster">Delete the cluster</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+	
+		
+
+
+
+  
+  
+
+	
+		
+
+
+
+  
+  
+
+	
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="https://ibm.github.io/manifests/release/v1.7/docs/">Documentation</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://ibm.github.io/manifests/release/v1.7/docs/prerequisites/">Prerequisites</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="https://ibm.github.io/manifests/release/v1.7/docs/prerequisites/classic/" aria-disabled="true" class="btn-link disabled">Kubernetes Cluster on Classic Infra</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Kubernetes Cluster on Classic Infra</h1>
+	<div class="lead">Create your cluster on a classic compute, networking, and storage environment in IBM Cloud infrastructure</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<p>This guide describes how to create a Kubernetes cluster with IBM Cloud Kubernetes Service.</p>
+<p><a href="https://www.ibm.com/cloud/kubernetes-service">IBM Cloud Kubernetes Service</a> provides powerful tools and services to help deploy highly available containerized apps in Kubernetes clusters and to automate, isolate, secure, manage, and monitor your workloads across zones or regions.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>
+<p><code>IBMid</code></p>
+<p>To get started, first go to <a href="https://ibm.biz/Bdqgck">IBM Cloud</a> to create your <code>IBMid</code> if you do not have one.</p>
+</li>
+<li>
+<p>Installing the IBM Cloud CLI</p>
+<p>Follow the instructions in this <a href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started#overview">Getting started with the IBM Cloud CLI</a> guide to install the IBM Cloud CLI.</p>
+</li>
+<li>
+<p>Installing the IBM Cloud Kubernetes Service plug-in with the command</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud plugin install container-service
+</span></span></code></pre></div><p>Refer to this <a href="https://cloud.ibm.com/docs/cli?topic=containers-kubernetes-service-cli">link</a> for more info on IBM Cloud Kubernetes Service CLI.</p>
+</li>
+<li>
+<p>Authenticating with IBM Cloud</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud login
+</span></span></code></pre></div><p>Use your registered email and password for your <code>IBMid</code> to log in to IBM Cloud.</p>
+</li>
+</ol>
+<h2 id="connecting-to-an-existing-cluster">Connecting to an existing cluster</h2>
+<p>If you have an existing cluster, use it to install Kubeflow as far as it meets the minimum system requirement.</p>
+<p>Get the Kubeconfig file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud ks cluster config --cluster <span class="nv">$CLUSTER_NAME</span>
+</span></span></code></pre></div><p>From here on, go to <a href="/docs/ibm/deploy/install-kubeflow-on-iks">Install Kubeflow on IKS</a> for more information.</p>
+<h2 id="create-and-setup-a-new-cluster">Create and setup a new cluster</h2>
+<ul>
+<li>Use a <code>classic</code> provider if you want to try out Kubeflow.</li>
+<li>Use a <code>vpc-gen2</code> provider if you are familiar with Cloud networking and want to deploy Kubeflow on a secure environment.</li>
+</ul>
+<p>A <code>classic</code> provider exposes each cluster node to the public internet and therefore has
+a relatively simpler networking setup. Services exposed using Kubernetes <code>NodePort</code> need to be secured using
+authentication mechanism.</p>
+<p>To create a cluster with <code>vpc-gen2</code> provider, follow the
+<a href="/docs/ibm/create-cluster-vpc">Create a cluster on IKS with a <code>vpc-gen2</code> provider</a>
+guide.</p>
+<p>The next section will explain how to create and set up a new IBM Cloud Kubernetes Service (IKS)</p>
+<h3 id="setting-environment-variables">Setting environment variables</h3>
+<p>Choose the region and the worker node provider for your cluster, and set the environment variables.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBERNETES_VERSION</span><span class="o">=</span>1.21
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_ZONE</span><span class="o">=</span>dal13
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">WORKER_NODE_PROVIDER</span><span class="o">=</span>classic
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>kubeflow
+</span></span></code></pre></div><p>where:</p>
+<ul>
+<li><code>KUBERNETES_VERSION</code> specifies the Kubernetes version for the cluster. Run <code>ibmcloud ks versions</code> to see the supported
+Kubernetes versions. If this environment variable is not set, the cluster will be created with the default version set
+by IBM Cloud Kubernetes Service. Refer to
+<a href="https://www.kubeflow.org/docs/started/k8s/overview/#minimum-system-requirements">Minimum system requirements</a>
+and choose a Kubernetes version compatible with the Kubeflow release to be deployed.</li>
+<li><code>CLUSTER_ZONE</code> identifies the regions or location where cluster will be created. Run <code>ibmcloud ks locations</code> to
+list supported IBM Cloud Kubernetes Service locations. For example, choose <code>dal13</code> to create your cluster in the
+Dallas (US) data center.</li>
+<li><code>WORKER_NODE_PROVIDER</code> specifies the kind of IBM Cloud infrastructure on which the Kubernetes worker nodes will be
+created. The <code>classic</code> type supports worker nodes with GPUs. There are other worker nodes providers including
+<code>vpc-classic</code> and <code>vpc-gen2</code> where zone names and worker flavors will be different. Run
+<code>ibmcloud ks zones --provider classic</code> to list zone names for <code>classic</code> provider and set the <code>CLUSTER_ZONE</code>
+accordingly.</li>
+<li><code>CLUSTER_NAME</code> must be lowercase and unique among any other Kubernetes
+clusters in the specified <code>${CLUSTER_ZONE}</code>.</li>
+</ul>
+<p><strong>Notice</strong>: Refer to <a href="https://cloud.ibm.com/docs/containers?topic=containers-clusters">Creating clusters</a> in the IBM
+Cloud documentation for additional information on how to set up other providers and zones in your cluster.</p>
+<h3 id="choosing-a-worker-node-flavor">Choosing a worker node flavor</h3>
+<p>The worker node flavor name varies from zones and providers. Run
+<code>ibmcloud ks flavors --zone ${CLUSTER_ZONE} --provider ${WORKER_NODE_PROVIDER}</code> to list available flavors.</p>
+<p>For example, the following are some worker node flavors supported in the <code>dal13</code> zone with a <code>classic</code> node provider.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud ks flavors --zone dal13 --provider classic
+</span></span></code></pre></div><p>Example output:</p>
+<pre tabindex="0"><code>OK
+For more information about these flavors, see &#39;https://ibm.biz/flavors&#39;
+Name                      Cores   Memory   Network Speed   OS             Server Type   Storage      Secondary Storage   Provider
+b2c.16x64                 16      64GB     1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.32x128                32      128GB    1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.4x16                  4       16GB     1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.56x242                56      242GB    1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.8x32                  8       32GB     1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b3c.16x64                 16      64GB     1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.32x128                32      128GB    1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.4x16                  4       16GB     1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.56x242                56      242GB    1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.8x32                  8       32GB     1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+...
+</code></pre><p>Choose a flavor that will work for your applications. For the purpose of the Kubeflow deployment, the recommended
+configuration for a cluster is at least 8 vCPU cores with 16GB memory. Hence you can either choose the <code>b3c.8x32</code> flavor
+to create a one-worker-node cluster or choose the <code>b3c.4x16</code> flavor to create a two-worker-node cluster. Keep in mind
+that you can always scale the cluster by adding more worker nodes should your application scales up.</p>
+<p>Now, set the environment variable with the worker node flavor of your choice:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">WORKER_NODE_FLAVOR</span><span class="o">=</span>b3c.4x16
+</span></span></code></pre></div><h3 id="creating-an-ibm-cloud-kubernetes-cluster">Creating an IBM Cloud Kubernetes cluster</h3>
+<p>Run with the following command to create a cluster:</p>
+<p>Replace the <code>workers</code> parameter above with the desired number of worker nodes.</p>
+<p>If you&rsquo;re starting in a fresh account with no public and private VLANs, they are created automatically for you
+when creating a Kubernetes cluster with worker nodes provider <code>classic</code> for the first time. If you already have VLANs
+configured in your account, retrieve them via <code>ibmcloud ks vlans --zone ${CLUSTER_ZONE}</code> and include the public and
+private VLAN ids (set in the <code>PUBLIC_VLAN_ID</code> and <code>PRIVATE_VLAN_ID</code> environment variables) in the command.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud ks cluster create <span class="si">${</span><span class="nv">WORKER_NODE_PROVIDER</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --name<span class="o">=</span><span class="nv">$CLUSTER_NAME</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --zone<span class="o">=</span><span class="nv">$CLUSTER_ZONE</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --version<span class="o">=</span><span class="si">${</span><span class="nv">KUBERNETES_VERSION</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --flavor <span class="si">${</span><span class="nv">WORKER_NODE_FLAVOR</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --workers<span class="o">=</span><span class="m">2</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --private-vlan <span class="si">${</span><span class="nv">PRIVATE_VLAN_ID</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --public-vlan <span class="si">${</span><span class="nv">PUBLIC_VLAN_ID</span><span class="si">}</span> 
+</span></span></code></pre></div><p>Wait until the cluster is deployed and configured. It can take a while for the cluster to be ready. Run with following
+command to periodically check the state of your cluster. Your cluster is ready when the state is <code>normal</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud ks clusters --provider <span class="si">${</span><span class="nv">WORKER_NODE_PROVIDER</span><span class="si">}</span> <span class="p">|</span>grep <span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span> <span class="p">|</span>awk <span class="s1">&#39;{print &#34;Name:&#34;$1&#34;\tState:&#34;$3}&#39;</span>
+</span></span></code></pre></div><h3 id="verifying-the-cluster">Verifying the cluster</h3>
+<p>To use the created cluster, switch the Kubernetes context to point to the cluster with the command</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud ks cluster config --cluster <span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span>
+</span></span></code></pre></div><p>Make sure all worker nodes are up with the command below</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get nodes
+</span></span></code></pre></div><p>and make sure all the nodes are in <code>Ready</code> state.</p>
+<h3 id="delete-the-cluster">Delete the cluster</h3>
+<p>Delete the cluster including it&rsquo;s storage:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ibmcloud ks cluster rm --force-delete-storage -c <span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span>
+</span></span></code></pre></div>
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 The Kubeflow Authors. All Rights Reserved</small>
+        <small class="ml-1"><a href="https://www.ibm.com/us-en/privacy" target="_blank" rel="noopener">Privacy Policy</a></small>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="/manifests/release/v1.7/js/main.min.a5ccff50dae72d638642b8067e0739b4685161445a4c6cb86e62a15516ed3c36.js" integrity="sha256-pcz/UNrnLWOGQrgGfgc5tGhRYURaTGy4bmKhVRbtPDY=" crossorigin="anonymous"></script>
+<script src='/manifests/release/v1.7/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
