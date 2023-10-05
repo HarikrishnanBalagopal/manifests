@@ -8,31 +8,33 @@ resources:
 # OIDC Authservice (required)
 - ../dist/stacks/ibm/application/oidc-authservice
 - ../dist/stacks/ibm/application/dex-auth
-# Knative
-- ../dist/stacks/ibm/application/knative
 # Kubeflow namespace (required)
 - ../dist/stacks/ibm/application/kubeflow-namespace
 # Kubeflow Roles (required)
 - ../dist/stacks/ibm/application/kubeflow-roles
 # Kubeflow istio resource (required)
 - ../dist/stacks/ibm/application/kubeflow-istio-resources
-# Kubeflow Pipelines Tekton
-- ../dist/stacks/ibm/application/kfp-tekton
-# KServe
-- ../dist/stacks/ibm/application/kserve
-# Katib
-- ../dist/stacks/ibm/application/katib
 # Central Dashboard (required)
 - ../dist/stacks/ibm/application/centraldashboard/single-user
 # Admission Webhook (required)
 - ../dist/stacks/ibm/application/admission-webhook
+# Profiles + KFAM (required)
+- ../dist/stacks/ibm/application/profiles
+- ../dist/stacks/ibm/application/user-namespace
+# Knative
+- ../dist/stacks/ibm/application/knative
+# Kubeflow Pipelines Tekton V2
+- ../dist/stacks/ibm/application/kfp-tekton
+# For KFP-Tekton V1, replace the Kubeflow Pipelines Tekton V2 stack above to the V1 stack below
+# - ../dist/stacks/ibm/application/kfp-tekton-v1
+# KServe
+- ../dist/stacks/ibm/application/kserve
+# Katib
+- ../dist/stacks/ibm/application/katib
 # Notebook Controller
 - ../dist/stacks/ibm/application/notebook-controller
 # Jupyter Web App
 - ../dist/stacks/ibm/application/jupyter-web-app/insecure
-# Profiles + KFAM (required)
-- ../dist/stacks/ibm/application/profiles
-- ../dist/stacks/ibm/application/user-namespace
 # Volumes Web App
 - ../dist/stacks/ibm/application/volumes-web-app/insecure
 # Tensorboards Web App
@@ -41,3 +43,33 @@ resources:
 -  ../dist/stacks/ibm/application/tensorboard-controller
 # Training Operator
 - ../dist/stacks/ibm/application/training-operator
+
+sortOptions:
+  order: legacy
+  legacySortOptions:
+    orderFirst:
+    - Namespace
+    - ResourceQuota
+    - StorageClass
+    - CustomResourceDefinition
+    - MutatingWebhookConfiguration
+    - ServiceAccount
+    - PodSecurityPolicy
+    - Role
+    - ClusterRole
+    - RoleBinding
+    - ClusterRoleBinding
+    - ConfigMap
+    - Secret
+    - Endpoints
+    - Service
+    - LimitRange
+    - PriorityClass
+    - PersistentVolume
+    - PersistentVolumeClaim
+    - Deployment
+    - StatefulSet
+    - CronJob
+    - PodDisruptionBudget
+    orderLast:
+    - ValidatingWebhookConfiguration
