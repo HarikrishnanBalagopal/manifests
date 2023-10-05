@@ -11,6 +11,13 @@ theme for styling and site structure, and [Netlify](https://www.netlify.com/) to
 
 This section will show you how to develop the website locally, by running a local Hugo server.
 
+### Recursively download the submodules (for docsy):
+
+Check out the submodule(doscy) as the main hugo theme module:
+```sh
+git submodule update --init --recursive
+```
+
 ### Install Hugo
 
 Building and running the site locally requires a recent `extended` version of [Hugo](https://gohugo.io).
